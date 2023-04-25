@@ -1,0 +1,64 @@
+﻿<Window x:Class="DatabaseExampleEFCore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseExampleEFCore"
+        mc:Ignorable="d"
+        Title="Клиенты" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btnPurchases" 
+                Grid.Row="0"
+                Content="Покупки" 
+                HorizontalAlignment="Left" 
+                Margin="10" 
+                VerticalAlignment="Center" 
+                Width="90" Click="btnPurchases_Click"
+                />
+
+        <Button x:Name="btnSelect" 
+                Grid.Row="0"
+                Content="Выбрать" 
+                HorizontalAlignment="Right" 
+                Margin="10" 
+                VerticalAlignment="Center" 
+                Width="90"
+                Click="btnSelect_Click"/>
+
+        <Button x:Name="btnDelete" 
+                Grid.Row="0"
+                Content="Удалить" 
+                HorizontalAlignment="Right" 
+                Margin="10, 10, 110, 10" 
+                VerticalAlignment="Center" 
+                Width="90" Click="btnDelete_Click"/>
+
+        <Button x:Name="btnAddClient" 
+                Grid.Row="0"
+                Content="Добавить" 
+                HorizontalAlignment="Right" 
+                Margin="10, 10, 210, 10" 
+                VerticalAlignment="Center" 
+                Width="90" Click="btnAddClient_Click"/>
+
+        <ListView x:Name="listClientDataView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" SelectedItem="{}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="columnId" Header="ID" DisplayMemberBinding="{Binding ClientID}" Width="30"/>
+                    <GridViewColumn x:Name="columnLastName" Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="150"/>
+                    <GridViewColumn x:Name="columnFirstName" Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="150"/>
+                    <GridViewColumn x:Name="columnMiddleName" Header="Отчество" DisplayMemberBinding="{Binding MiddleName}" Width="150"/>
+                    <GridViewColumn x:Name="columnPhoneNumber" Header="Телефон" DisplayMemberBinding="{Binding Phone}" Width="150"/>
+                    <GridViewColumn x:Name="columnPassportNumber" Header="E-mail" DisplayMemberBinding="{Binding Email}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+
+</Window>
